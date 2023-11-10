@@ -1,0 +1,34 @@
+:root{
+    --tui-description-items-gap: 0.5rem 1.5rem;
+    --tui-description-item-label-width: 150px;
+    --tui-description-item-details-width: 200px;
+}
+
+.tui-description-items {
+    --tui-description-item-width: 250px;
+    display: grid;
+    grid-gap: var(--tui-description-items-gap);
+    grid-template-columns: repeat(auto-fit, minmax(var(--tui-description-item-width), 1fr));
+}
+
+.tui-description-item-label {
+    font-size: .625rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    line-height: 1rem;
+    color: #6c7a91;
+}
+
+.tui-description-items[data-orientation='horizontal'] {
+    --tui-description-item-width: calc(var(--tui-description-item-label-width) + var(--tui-description-item-details-width));
+    grid-template-columns: repeat(auto-fit, minmax(var(--tui-description-item-width), 1fr));
+}
+
+.tui-description-items[data-orientation='horizontal'] .tui-description-item{
+    display: grid;
+    align-items: center;
+    grid-template-columns: var(--tui-description-item-label-width) var(--tui-description-item-details-width);
+    grid-auto-flow: column;
+    grid-gap: 20px;
+}
